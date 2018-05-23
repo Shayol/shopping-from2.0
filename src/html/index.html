@@ -25,8 +25,12 @@
                             <input type="text" name="name-shipping" placeholder="Full Name" class="form__input col-8" required>
                         </div>
                         <div class="form__field row">
-                            <input type="text" name="phone-shipping" placeholder="Daytime Phone" class="form__input col-8 col-md-5">
-                            <div class="form__delivery-note col-8 col-md-2">For delivery questions only</div>
+                            <div class="col-8 col-md-5">
+                                <input type="text" name="phone-shipping" placeholder="Daytime Phone" class="form__input">
+                            </div>
+                            <div class="col-8 col-md-2">
+                                <div class="form__delivery-note">For delivery questions only</div>
+                            </div>
                         </div>
                         <h3 class="form__subheader">Address</h3>
                         <div class="form__field row">
@@ -39,12 +43,18 @@
                             <input type="text" name="city-shipping" placeholder="City" class="form__input col-8" required>
                         </div>
                         <div class="form__field row">
-                            <select name="country-shipping" class="form__input form__select col-8 col-md-5" required>
-                                <option selected value disabled>Country</option>
-                            </select>
-                            <input type="text" class="form__input col-8 col-md-5" name="zip-shipping" required>
+                            <div class="col-8 col-md-5">
+                                <select name="country-shipping" class="form__input form__select form__input--medium-width" required>
+                                    <option selected value disabled>Country</option>
+                                </select>
+                            </div>
+                            <div class="col-8 col-md-3">
+                                <input type="text" class="form__input form__input--medium-width" name="zip-shipping" required>
+                            </div>
                         </div>
-                        <div class="form__button col-8 col-md-5">Continue</div>
+                        <div class="col-8 col-md-5">
+                            <div class="form__button">Continue</div>
+                        </div>
                     </div>
                     <div class="form__section form__section--billing">
                         <div class="form__header-wrapper">
@@ -69,12 +79,18 @@
                             <input type="text" name="city-billing" placeholder="City" class="form__input col-8" required>
                         </div>
                         <div class="form__field row">
-                            <select name="country-billing" class="form__input form__select col-8 col-md-5" required>
-                                <option selected value disabled>Country</option>
-                            </select>
-                            <input type="text" class="form__input col-8 col-md-5" name="zip-billing" required>
+                            <div class="col-8 col-md-5">
+                                <select name="country-billing" class="form__input form__select form__input--medium-width" required>
+                                    <option selected value disabled>Country</option>
+                                </select>
+                            </div>
+                            <div class="col-8 col-md-5">
+                                <input type="text" class="form__input form__input--medium-width" name="zip-billing" required>
+                            </div>
                         </div>
-                        <div class="form__button col-8 col-md-5">Continue</div>
+                        <div class="col-8 col-md-5">
+                            <div class="form__button">Continue</div>
+                        </div>
                     </div>
                     <div class="form__section form__section--payment">
                         <h2 class="form__header">Payment</h2>
@@ -97,14 +113,19 @@
                             <input type="date" name="expire-date" class="form__input">
                             <input type="text" name="security-code" class="form__input">
                         </div>
-                        <button type="submit" class="form__button">Pay Securely</button>
+                        <div class="col-8 md-col-5">
+                            <button type="submit" class="form__button">Pay Securely</button>
+                        </div>
                     </div>
 
                 </form>
 
             </div>
-            <div class="page__order-summary order-summary">
-
+            <div class="page__order-summary order-summary grid">
+                <div class="grid__row">
+                    <div class="order-summary__header subheader grid__col-3">Order Summary</div>
+                    <a href="#" class="order-summary__edit grid__col-2">edit order</a>
+                </div>
             </div>
         </div>
     </div>
