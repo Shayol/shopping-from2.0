@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+</head>
+
+<body>
+    <div class="page">
+        <div class="page__main">
+            <div class="page__order-tab">
+                <div class="breadcrumbs">
+                    <div class="breadcrumbs__item breadcrumbs__shipping">Shipping</div>
+                    <div class="breadcrumbs__item breadcrumbs__billing">Billing</div>
+                    <div class="breadcrumbs__item breadcrumbs__payment">Payment</div>
+                </div>
+                <form action="/form" method="post" class="form" novalidate>
+                    <div class="form__section form__section--shipping">
+                        <h2 class="form__header">Shipping Info</h2>
+                        <h3 class="form__subheader">Recipient</h3>
+                        <div class="form__field row">
+                            <input type="text" name="name-shipping" placeholder="Full Name" class="form__input col-8" required>
+                        </div>
+                        <div class="form__field row">
+                            <input type="text" name="phone-shipping" placeholder="Daytime Phone" class="form__input col-8 col-md-5">
+                            <div class="form__delivery-note col-8 col-md-2">For delivery questions only</div>
+                        </div>
+                        <h3 class="form__subheader">Address</h3>
+                        <div class="form__field row">
+                            <input type="text" name="street-shipping" placeholder="Street Address" class="form__input col-8" required>
+                        </div>
+                        <div class="form__field row">
+                            <input type="text" name="apt-shipping" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" class="form__input col-8">
+                        </div>
+                        <div class="form__field row">
+                            <input type="text" name="city-shipping" placeholder="City" class="form__input col-8" required>
+                        </div>
+                        <div class="form__field row">
+                            <select name="country-shipping" class="form__input form__select col-8 col-md-5" required>
+                                <option selected value disabled>Country</option>
+                            </select>
+                            <input type="text" class="form__input col-8 col-md-5" name="zip-shipping" required>
+                        </div>
+                        <div class="form__button col-8 col-md-5">Continue</div>
+                    </div>
+                    <div class="form__section form__section--billing">
+                        <div class="form__header-wrapper">
+                            <h2 class="form__header">Billing Information</h2>
+                            <a href="#" class="form__same-as-shipping">Same as shipping</a>
+                        </div>
+                        <h3 class="form__subheader">Billing Contact</h3>
+                        <div class="form__field row">
+                            <input type="text" name="name-billing" placeholder="Full Name" class="form__input col-8" required>
+                        </div>
+                        <div class="form__field row">
+                            <input type="text" name="email-billing" placeholder="Email Address" class="form__input col-8">
+                        </div>
+                        <h3 class="form__subheader">Billing Address</h3>
+                        <div class="form__field row">
+                            <input type="text" name="street-billing" placeholder="Street Address" class="form__input col-8">
+                        </div>
+                        <div class="form__field row">
+                            <input type="text" name="apt-billing" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" class="form__input col-8">
+                        </div>
+                        <div class="form__field row">
+                            <input type="text" name="city-billing" placeholder="City" class="form__input col-8" required>
+                        </div>
+                        <div class="form__field row">
+                            <select name="country-billing" class="form__input form__select col-8 col-md-5" required>
+                                <option selected value disabled>Country</option>
+                            </select>
+                            <input type="text" class="form__input col-8 col-md-5" name="zip-billing" required>
+                        </div>
+                        <div class="form__button col-8 col-md-5">Continue</div>
+                    </div>
+                    <div class="form__section form__section--payment">
+                        <h2 class="form__header">Payment</h2>
+                        <div class="form__secure-payment secure-payment">
+                            <div class="secure-payment__icon"></div>
+                            <div class="secure-payment__text">This is a secure 128-bit SSL encrypted payment</div>
+                        </div>
+                        <h3 class="form__subheader">Cardholder Name</h3>
+                        <div class="form__field row">
+                            <input type="text" name="card-holder-name" placeholder="Name as it appears on your card" class="form__input col-8">
+                        </div>
+                        <div class="form__field row">
+                            <input type="text" name="card-number" placeholder="XXXX XXXX XXXX XXXX XXXX" class="form__input col-8">
+                        </div>
+                        <div class="form__subheader-wrapper row">
+                            <h3 class="form__subheader form__subheader--expired-date">Expire Date</h3>
+                            <h3 class="form__subheader form__subheader--security-code">Security Code</h3>
+                        </div>
+                        <div class="form__field row">
+                            <input type="date" name="expire-date" class="form__input">
+                            <input type="text" name="security-code" class="form__input">
+                        </div>
+                        <button type="submit" class="form__button">Pay Securely</button>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="page__order-summary order-summary">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
