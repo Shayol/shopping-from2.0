@@ -18,41 +18,41 @@
                     <div class="breadcrumbs__item breadcrumbs__payment">Payment</div>
                 </div>
                 <form action="/form" method="post" class="form" novalidate>
-                    <div class="form__section form__section--shipping">
-                        <h2 class="form__header">Shipping Info</h2>
-                        <h3 class="form__subheader">Recipient</h3>
-                        <div class="form__field row">
-                            <input type="text" name="name-shipping" placeholder="Full Name" class="form__input col-8" required>
+                    <div class="form__section form__section--shipping grid">
+                        <h2 class="form__header grid__col-4">Shipping Info</h2>
+                        <h3 class="form__subheader subheader grid__col-2">Recipient</h3>
+                        <div class="form__field grid__row">
+                            <input type="text" name="name-shipping" placeholder="Full Name" class="form__input grid__col-8" required>
                         </div>
-                        <div class="form__field row">
-                            <div class="col-8 col-md-5">
+                        <div class="form__field grid__row">
+                            <div class="grid__col-8 grid__col-md-5">
                                 <input type="text" name="phone-shipping" placeholder="Daytime Phone" class="form__input">
                             </div>
-                            <div class="col-8 col-md-2">
+                            <div class="grid__col-8 grid__col-md-2">
                                 <div class="form__delivery-note">For delivery questions only</div>
                             </div>
                         </div>
-                        <h3 class="form__subheader">Address</h3>
-                        <div class="form__field row">
-                            <input type="text" name="street-shipping" placeholder="Street Address" class="form__input col-8" required>
+                        <h3 class="form__subheader subheader">Address</h3>
+                        <div class="form__field grid__row">
+                            <input type="text" name="street-shipping" placeholder="Street Address" class="form__input grid__col-8" required>
                         </div>
-                        <div class="form__field row">
-                            <input type="text" name="apt-shipping" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" class="form__input col-8">
+                        <div class="form__field grid__row">
+                            <input type="text" name="apt-shipping" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" class="form__input grid__col-8">
                         </div>
-                        <div class="form__field row">
-                            <input type="text" name="city-shipping" placeholder="City" class="form__input col-8" required>
+                        <div class="form__field grid__row">
+                            <input type="text" name="city-shipping" placeholder="City" class="form__input grid__col-8" required>
                         </div>
-                        <div class="form__field row">
-                            <div class="col-8 col-md-5">
+                        <div class="form__field grid__row">
+                            <div class="grid__col-8 grid__col-md-5">
                                 <select name="country-shipping" class="form__input form__select form__input--medium-width" required>
                                     <option selected value disabled>Country</option>
                                 </select>
                             </div>
-                            <div class="col-8 col-md-3">
+                            <div class="grid__col-8 grid__col-md-3">
                                 <input type="text" class="form__input form__input--medium-width" name="zip-shipping" required>
                             </div>
                         </div>
-                        <div class="col-8 col-md-5">
+                        <div class="grid__col-8 grid__col-md-5">
                             <div class="form__button">Continue</div>
                         </div>
                     </div>
@@ -61,34 +61,34 @@
                             <h2 class="form__header">Billing Information</h2>
                             <a href="#" class="form__same-as-shipping">Same as shipping</a>
                         </div>
-                        <h3 class="form__subheader">Billing Contact</h3>
-                        <div class="form__field row">
-                            <input type="text" name="name-billing" placeholder="Full Name" class="form__input col-8" required>
+                        <h3 class="form__subheader subheader">Billing Contact</h3>
+                        <div class="form__field grid__row">
+                            <input type="text" name="name-billing" placeholder="Full Name" class="form__input grid__col-8" required>
                         </div>
-                        <div class="form__field row">
-                            <input type="text" name="email-billing" placeholder="Email Address" class="form__input col-8">
+                        <div class="form__field grid__row">
+                            <input type="text" name="email-billing" placeholder="Email Address" class="form__input grid__col-8">
                         </div>
-                        <h3 class="form__subheader">Billing Address</h3>
-                        <div class="form__field row">
-                            <input type="text" name="street-billing" placeholder="Street Address" class="form__input col-8">
+                        <h3 class="form__subheader subheader">Billing Address</h3>
+                        <div class="form__field grid__row">
+                            <input type="text" name="street-billing" placeholder="Street Address" class="form__input grid__col-8">
                         </div>
-                        <div class="form__field row">
-                            <input type="text" name="apt-billing" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" class="form__input col-8">
+                        <div class="form__field grid__row">
+                            <input type="text" name="apt-billing" placeholder="Apt, Suite, Bldg, Gate Code. (optional)" class="form__input grid__col-8">
                         </div>
-                        <div class="form__field row">
-                            <input type="text" name="city-billing" placeholder="City" class="form__input col-8" required>
+                        <div class="form__field grid__row">
+                            <input type="text" name="city-billing" placeholder="City" class="form__input grid__col-8" required>
                         </div>
-                        <div class="form__field row">
-                            <div class="col-8 col-md-5">
+                        <div class="form__field grid__row">
+                            <div class="grid__col-8 grid__col-md-5">
                                 <select name="country-billing" class="form__input form__select form__input--medium-width" required>
                                     <option selected value disabled>Country</option>
                                 </select>
                             </div>
-                            <div class="col-8 col-md-5">
+                            <div class="grid__col-8 grid__col-md-5">
                                 <input type="text" class="form__input form__input--medium-width" name="zip-billing" required>
                             </div>
                         </div>
-                        <div class="col-8 col-md-5">
+                        <div class="grid__col-8 grid__col-md-5">
                             <div class="form__button">Continue</div>
                         </div>
                     </div>
@@ -98,22 +98,22 @@
                             <div class="secure-payment__icon"></div>
                             <div class="secure-payment__text">This is a secure 128-bit SSL encrypted payment</div>
                         </div>
-                        <h3 class="form__subheader">Cardholder Name</h3>
-                        <div class="form__field row">
-                            <input type="text" name="card-holder-name" placeholder="Name as it appears on your card" class="form__input col-8">
+                        <h3 class="form__subheader subheader">Cardholder Name</h3>
+                        <div class="form__field grid__row">
+                            <input type="text" name="card-holder-name" placeholder="Name as it appears on your card" class="form__input grid__col-8">
                         </div>
-                        <div class="form__field row">
-                            <input type="text" name="card-number" placeholder="XXXX XXXX XXXX XXXX XXXX" class="form__input col-8">
+                        <div class="form__field grid__row">
+                            <input type="text" name="card-number" placeholder="XXXX XXXX XXXX XXXX XXXX" class="form__input grid__col-8">
                         </div>
-                        <div class="form__subheader-wrapper row">
-                            <h3 class="form__subheader form__subheader--expired-date">Expire Date</h3>
-                            <h3 class="form__subheader form__subheader--security-code">Security Code</h3>
+                        <div class="form__subheader-wrapper grid__row">
+                            <h3 class="form__subheader subheader  form__subheader--expired-date">Expire Date</h3>
+                            <h3 class="form__subheader subheader form__subheader--security-code">Security Code</h3>
                         </div>
-                        <div class="form__field row">
+                        <div class="form__field grid__row">
                             <input type="date" name="expire-date" class="form__input">
                             <input type="text" name="security-code" class="form__input">
                         </div>
-                        <div class="col-8 md-col-5">
+                        <div class="grid__col-8 md-grid__col-5">
                             <button type="submit" class="form__button">Pay Securely</button>
                         </div>
                     </div>
@@ -123,8 +123,119 @@
             </div>
             <div class="page__order-summary order-summary grid">
                 <div class="grid__row">
-                    <div class="order-summary__header subheader grid__col-3">Order Summary</div>
-                    <a href="#" class="order-summary__edit grid__col-2">edit order</a>
+                    <div class="grid__col-8">
+                        <div class="order-summary__header subheader">Order Summary</div>
+                    </div>
+                    <div class="grid__col-2">
+                        <a href="#" class="order-summary__edit grid__col-2">edit order</a>
+                    </div>
+                </div>
+                <div class="product grid__row">
+                    <div class="grid__col-2">
+                        <div class="product__img">
+                            <img src="../img/boot.png" alt="boot">
+                        </div>
+                    </div>
+                    <div class="grid__col-6">
+                        <div class="product__info">
+                            <h6 class="product__name">
+                                The Chelsea Boot
+                            </h6>
+                            <div class="product__description">
+                                Black
+                            </div>
+                            <div class="product__quantity">
+                                Quantity: 1
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__col-2">
+                        <div class="product__price">
+                            $235
+                        </div>
+                    </div>
+                </div>
+                <div class="product grid__row">
+                    <div class="grid__col-2">
+                        <div class="product__img">
+                            <img src="../img/backpack.png" alt="boot">
+                        </div>
+                    </div>
+                    <div class="grid__col-6">
+                        <div class="product__info">
+                            <h6 class="product__name">
+                                The Twill Snap Backpack
+                            </h6>
+                            <div class="product__description">
+                                Reverse Denim + Brown leather
+                            </div>
+                            <div class="product__quantity">
+                                Quantity: 1
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__col-2">
+                        <div class="product__price">
+                            $65
+                        </div>
+                    </div>
+                </div>
+                <div class="product grid__row">
+                    <div class="grid__col-2">
+                        <div class="product__img">
+                            <img src="../img/bag.png" alt="boot">
+                        </div>
+                    </div>
+                    <div class="grid__col-6">
+                        <div class="product__info">
+                            <h6 class="product__name">
+                                The Twill Zip Tote
+                            </h6>
+                            <div class="product__description">
+                                The Twill Zip Tote
+                            </div>
+                            <div class="product__quantity">
+                                Quantity: 1
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__col-2">
+                        <div class="product__price">
+                            $48
+                        </div>
+                    </div>
+                </div>
+                <div class="order-summary__cost cost">
+                    <div class="grid__row">
+                        <div class="cost__subtotal subtotal">
+                            <div class="grid__col-8">
+                                <div class="subtotal__text"></div>
+                                <div class="grid__col-2">
+                                    <div class="subtotal__number"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__row">
+                        <div class="cost__shipping shipping">
+                            <div class="grid__col-8">
+                                <div class="shipping__text"></div>
+                                <div class="grid__col-2">
+                                    <div class="shipping__number"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid__row">
+                        <div class="cost__taxes">
+                            <div class="grid__col-8">
+                                <div class="taxes__text"></div>
+                                <div class="grid__col-2">
+                                    <div class="taxes__number"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
