@@ -1,0 +1,13 @@
+@mixin row($align:null) {
+    display: flex;
+    @if $align != null {
+        justify-content: $align;
+    }
+    align-items: center;
+    
+}
+
+@mixin col($i) {
+    width: 10% * $i;
+}
+

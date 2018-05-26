@@ -1,0 +1,15 @@
+.page {
+    &__header {
+        height: 50px;
+    }
+    &__content {
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    @media (min-width: 780px) {
+        &__content {
+            width: 700px;
+        }
+    }
+}

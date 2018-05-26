@@ -1,3 +1,16 @@
 $purple: #5a1094;
 $grey-placeholder: #6b6b6b;
 $grey-order-summary: #777879;
+
+html {
+    font-size: 16px;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}

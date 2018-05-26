@@ -24,7 +24,7 @@ module.exports = {
       },
       {
         test: /\.html$/,
-        exclude: /(index|catalog|form)\.html$/, //without this HtmlWebPackPlugin will not work with template file correctly
+        // exclude: /(index)\.html$/, //without this HtmlWebPackPlugin will not work with template file correctly but with this images are not processed
         use: [
           {
             loader: "html-loader",
