@@ -1,13 +1,19 @@
-@mixin row($align:null) {
-    display: flex;
-    @if $align != null {
-        justify-content: $align;
+@mixin row {
+    
+    &::after {
+        display: table;
+        content: '';
+        clear: both;
     }
-    align-items: center;
     
 }
 
 @mixin col($i) {
     width: 10% * $i;
+    float: left;
+}
+
+@mixin offset($n) {
+    margin-left: 10% * $n;
 }
 

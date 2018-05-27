@@ -24,11 +24,27 @@
     &__title {
         height: 100%;
         @include row;
-        @include col(8);
+        @include col(5);
+        line-height: 50px;
+    }
+
+    &__icon {
+        @include col(1);
+    }
+
+    &__icon {
+        padding-top: 8px;
+    }
+    &__text {
+        @include col(9);
+        height: 100%;
     }
 
     &__cart {
-        @include row(flex-end);
-        @include col(2);        
+        @include row;
+        @include col(2);  
+        @include offset(3);
+        height: 100%;
+        line-height: 50px;      
     }
 }

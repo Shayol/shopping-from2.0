@@ -1,6 +1,12 @@
 .cart {
+    @include row;
+    &__text {
+        @include col(2);
+    }
     &__icon-wrapper {
         position: relative;
+        display: inline-block;
+        line-height: 21px;
     }
     &__number {
         position: absolute;
