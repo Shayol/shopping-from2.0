@@ -63,19 +63,15 @@
         <div class="page__content content">
             <div class="content__form">
                 <div class="breadcrumbs">
-                    <div class="breadcrumbs__item breadcrumbs__shipping">Shipping</div>
-                    <div class="breadcrumbs__item breadcrumbs__billing">Billing</div>
-                    <div class="breadcrumbs__item breadcrumbs__payment">Payment</div>
+                    <div class="breadcrumbs__item breadcrumbs__item--shipping">Shipping</div>
+                    <div class="breadcrumbs__item breadcrumbs__item--billing">Billing</div>
+                    <div class="breadcrumbs__item breadcrumbs__item--payment">Payment</div>
                 </div>
                 <form action="/form" method="post" class="form" novalidate>
                     <div class="form__section form__section--shipping">
-                        <div class="grid__row">
-                            <h2 class="form__header grid__col-4">Shipping Info</h2>
-                        </div>
-                        <div class="grid__row">
-                            <h3 class="form__subheader subheader grid__col-2">Recipient</h3>
-                        </div>
-                        <div class="form__field grid__row">
+                        <h2 class="form__header">Shipping Info</h2>
+                        <h3 class="form__subheader subheader grid__col-2">Recipient</h3>
+                        <div class="form__field">
                             <input type="text" name="name-shipping" placeholder="Full Name" class="form__input grid__col-8" required>
                         </div>
                         <div class="form__field grid__row">

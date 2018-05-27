@@ -5,4 +5,12 @@
             display: block;
         }
     }
+
+    &__header {
+        @include offset(1);
+        font-size: 26px;
+        color: $purple;
+        margin-top: 26px;
+        margin-bottom: 20px;
+    }
 }
