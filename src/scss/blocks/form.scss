@@ -5,12 +5,51 @@
             display: block;
         }
     }
-
     &__header {
         @include offset(1);
         font-size: 26px;
         color: $purple;
         margin-top: 26px;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
+    }
+    &__subheader {
+        @include offset(1);
+        margin-bottom: 3px;
+    }
+
+    &__subheader\--address {
+        margin-top: 30px;
+    }
+    &__field {
+        @include row;
+    }
+
+    &__field\--medium {
+        @include row;
+        @include col(5);
+        @include offset(1);
+    }
+
+    &__input {
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid #dedcdc;
+        margin-bottom: 10px;
+    }
+    &__input:not(&__input\--small):not(&__input\--medium) {
+        @include offset(1);
+        @include col(8);
+    }
+    &__input\--medium {
+        @include col(9);
+    }
+    &__input\--small {
+        @include col(3);
+    }
+
+    &__delivery-note {
+        font-size: 13px;
+        color: $grey-order-summary;
+        @include col(2);
     }
 }
