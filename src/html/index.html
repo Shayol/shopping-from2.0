@@ -96,9 +96,11 @@
                                     <option selected value disabled>Country</option>
                                 </select>
                             </div>
-                            <input type="text" class="form__input form__input--small" name="zip-shipping" required>
+                            <input type="text" class="form__input form__input--small" placeholder="ZIP" name="zip-shipping" required>
                         </div>
-                        <div class="form__button">Continue</div>
+                        <div class="form__button-wrapper">
+                            <button class="form__button button">Continue</button>
+                        </div>
                     </div>
                     <div class="form__section form__section--billing">
                         <div class="form__header-wrapper">
@@ -128,17 +130,16 @@
                                     <option selected value disabled>Country</option>
                                 </select>
                             </div>
-                            <input type="text" class="form__input form__input--small" name="zip-billing" required>
+                            <input type="text" class="form__input form__input--small" placeholder="ZIP" name="zip-billing" required>
                         </div>
-                        <div class="grid__col-8 grid__col-md-5">
-                            <div class="form__button">Continue</div>
+                        <div class="form__button-wrapper">
+                            <button class="form__button button">Continue</button>
                         </div>
                     </div>
                     <div class="form__section form__section--payment">
                         <h2 class="form__header">Payment</h2>
                         <div class="form__secure-payment secure-payment">
-                            <div class="secure-payment__icon"></div>
-                            <div class="secure-payment__text">This is a secure 128-bit SSL encrypted payment</div>
+                            This is a secure 128-bit SSL encrypted payment
                         </div>
                         <h3 class="form__subheader subheader">Cardholder Name</h3>
                         <div class="form__field">
@@ -151,11 +152,13 @@
                             <h3 class="form__subheader subheader  form__subheader--expired-date">Expire Date</h3>
                             <h3 class="form__subheader subheader form__subheader--security-code">Security Code</h3>
                         </div>
-                        <div class="form__field">
-                            <input type="date" name="expire-date" class="form__input">
-                            <input type="text" name="security-code" class="form__input">
+                        <div class="form__field form__field--tiny">
+                            <input type="date" name="expire-date" class="form__input form__input--tiny">
+                            <input type="text" name="security-code" class="form__input form__input--tiny form__input--security-code">
                         </div>
-                        <button type="submit" class="form__button">Pay Securely</button>
+                        <div class="form__button-wrapper">
+                            <button type="submit" class="form__button button">Pay Securely</button>
+                        </div>
                     </div>
 
                 </form>
@@ -164,7 +167,7 @@
             <div class="content__order-summary order-summary">
                 <div class="order-summary__header">
                     <div class="order-summary__title subheader">Order Summary</div>
-                    <a href="#" class="order-summary__edit grid__col-2">edit order</a>
+                    <a href="#" class="order-summary__edit">edit order</a>
                 </div>
                 <div class="product">
                     <div class="product__img">
@@ -213,71 +216,41 @@
                     </div>
                 </div>
                 <div class="product">
-                    <div class="grid__col-2">
-                        <div class="product__img">
-                            <img src="../img/bag.png" alt="boot">
+                    <div class="product__img">
+                        <img src="../img/bag.png" alt="boot">
+                    </div>
+                    <div class="product__info">
+                        <h6 class="product__name">
+                            The Twill Zip Tote
+                        </h6>
+                        <div class="product__description">
+                            The Twill Zip Tote
+                        </div>
+                        <div class="product__quantity">
+                            Quantity: 1
                         </div>
                     </div>
-                    <div class="grid__col-6">
-                        <div class="product__info">
-                            <h6 class="product__name">
-                                The Twill Zip Tote
-                            </h6>
-                            <div class="product__description">
-                                The Twill Zip Tote
-                            </div>
-                            <div class="product__quantity">
-                                Quantity: 1
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid__col-2">
-                        <div class="product__price">
-                            $48
-                        </div>
+                    <div class="product__price">
+                        $48
                     </div>
                 </div>
                 <div class="order-summary__cost cost">
-                    <div class="cost__subtotal subtotal">
-                        <div class="grid__row">
-                            <div class="grid__col-8">
-                                <div class="subtotal__text">Subtotal</div>
-                            </div>
-                            <div class="grid__col-2">
-                                <div class="subtotal__number">$398</div>
-                            </div>
-                        </div>
+                    <div class="cost__data">
+                        <div class="cost__text">Subtotal</div>
+                        <div class="cost__number">$398</div>
                     </div>
-                    <div class="cost__shipping shipping">
-                        <div class="grid__row">
-                            <div class="grid__col-8">
-                                <div class="shipping__text">Shipping</div>
-                            </div>
-                            <div class="grid__col-2">
-                                <div class="shipping__number">Free</div>
-                            </div>
-                        </div>
+                    <div class="cost__data">
+                        <div class="cost__text">Shipping</div>
+                        <div class="cost__number">Free</div>
                     </div>
-                    <div class="cost__taxes">
-                        <div class="grid__row">
-                            <div class="grid__col-8">
-                                <div class="taxes__text">Free</div>
-                            </div>
-                            <div class="grid__col-2">
-                                <div class="taxes__number">$12.12</div>
-                            </div>
-                        </div>
+                    <div class="cost__data">
+                        <div class="cost__text">Free</div>
+                        <div class="cost__number">$12.12</div>
                     </div>
                 </div>
-                <div class="order-summery__total total">
-                    <div class="grid__row">
-                        <div class="grid__col-8">
-                            <div class="total__text">Total</div>
-                        </div>
-                        <div class="grid__col-2">
-                            <div class="total__number">$410.12</div>
-                        </div>
-                    </div>
+                <div class="order-summary__total total">
+                    <div class="total__text">Total</div>
+                    <div class="total__number">$410.12</div>
                 </div>
             </div>
         </div>

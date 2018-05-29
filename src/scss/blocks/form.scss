@@ -1,10 +1,14 @@
 .form {
+
     &__section {
-        display: none;
-        &\--shipping {
-            display: block;
-        }
+        @include row;
     }
+    // &__section {
+    //     display: none;
+    //     &\--shipping {
+    //         display: block;
+    //     }
+    // }
     &__header {
         @include offset(1);
         font-size: 26px;
@@ -16,27 +20,40 @@
         @include offset(1);
         margin-bottom: 3px;
     }
-
     &__subheader\--address {
         margin-top: 30px;
     }
     &__field {
         @include row;
     }
-
     &__field\--medium {
         @include row;
         @include col(5);
         @include offset(1);
     }
-
+    &__field\--tiny, &__subheader-wrapper {
+        @include col(8);
+        @include offset(1);
+        @include row;
+    }
     &__input {
         height: 40px;
         border-radius: 5px;
         border: 1px solid #dedcdc;
         margin-bottom: 10px;
+        padding-left: 15px;
     }
-    &__input:not(&__input\--small):not(&__input\--medium) {
+
+    // ::-webkit-input-placeholder {
+    //     color: $grey-placeholder;
+    //     size: 16px;
+    // }
+
+    // ::-moz-placeholder {
+    //     color: $grey-placeholder;
+    //     size: 16px;
+    // }
+    &__input:not(&__input\--small):not(&__input\--medium):not(button):not(&__input\--tiny) {
         @include offset(1);
         @include col(8);
     }
@@ -46,10 +63,47 @@
     &__input\--small {
         @include col(3);
     }
-
+    &__input\--tiny {
+        @include col(3);
+    }
+    &__input\--security-code, &__subheader\--security-code {
+        @include offset(1);
+    }
+    &__subheader\--expired-date, &__subheader\--security-code {
+        @include col(3);
+    }
+    &__subheader\--expired-date {
+        margin-left: 0;
+    }
     &__delivery-note {
         font-size: 13px;
         color: $grey-order-summary;
         @include col(2);
+    }
+
+    &__button-wrapper {
+        @include offset(1);
+        @include col(8);
+        @include row;
+    }
+
+    &__button {
+        @include col(10);
+    }
+
+    &__secure-payment {
+        @include offset(1);
+        @include col(8);
+    }
+
+    @media (min-width: $tablet) {
+        &__button-wrapper {
+            @include offset(1);
+            @include col(5);
+            @include row;
+        }
+        &__button {
+            @include col(9);
+        }
     }
 }

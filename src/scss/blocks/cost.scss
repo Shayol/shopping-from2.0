@@ -1,0 +1,18 @@
+.cost {
+    margin-top: 12px;
+    border-bottom: 1px solid #e3e3e3;
+    &__data {
+        @include row;
+        color: $grey-order-summary;
+        font-size: 12px;
+        margin-bottom: 7px;
+    }
+
+    &__text {
+        @include col-six(3);
+    }
+    &__number {
+        @include col-six(3);
+        text-align: right;
+    }
+}

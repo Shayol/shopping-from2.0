@@ -8,7 +8,7 @@
         margin-left: auto;
         margin-right: auto;
     }
-    @media (min-width: 780px) {
+    @media (min-width: $tablet) {
         &__content {
             width: 700px;
         }

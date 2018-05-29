@@ -17,3 +17,8 @@
     margin-left: 10% * $n;
 }
 
+@mixin col-six($m) {
+    width: 16.66% * $m;
+    float: left;
+}
+

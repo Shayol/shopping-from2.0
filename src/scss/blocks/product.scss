@@ -1,0 +1,34 @@
+.product {
+    @include row;
+    padding-bottom: 11px;
+    padding-top: 13px;
+    border-bottom: 1px solid #e3e3e3;
+    &__img {
+        @include col-six(1);
+        border-radius: 1px;
+        border: 1px solid #e3e3e3;
+    }
+    &__info {
+        @include col-six(4);
+        padding-left: 10px;
+    }
+    &__name {
+        margin: 0;
+        color: $grey-order-summary;
+        font-size: 12px;
+    }
+    &__description {
+        font-size: 10px;
+        color: #2b2525;
+    }
+    &__quantity {
+        font-size: 10px;
+        color: #2b2525;
+    }
+    &__price {
+        color: $grey-order-summary;
+        font-size: 12px;
+        @include col-six(1);
+        text-align: right;
+    }
+}
