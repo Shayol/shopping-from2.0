@@ -1,7 +1,9 @@
 .cart {
     @include row;
     &__text {
-        @include col(2);
+        color: #c90ea5;
+        font-size: 15px;
+        float: left;
     }
     &__icon-wrapper {
         position: relative;

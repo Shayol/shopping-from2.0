@@ -3,12 +3,12 @@
     &__section {
         @include row;
     }
-    // &__section {
-    //     display: none;
-    //     &\--shipping {
-    //         display: block;
-    //     }
-    // }
+    &__section {
+        display: none;
+        &\--shipping {
+            display: block;
+        }
+    }
     &__header {
         @include offset(1);
         font-size: 26px;
@@ -21,10 +21,25 @@
         margin-bottom: 3px;
     }
     &__subheader\--address {
-        margin-top: 30px;
+        margin-top: 20px;
+    }
+
+    &__header-wrapper {
+        @include row;
+    }
+    &__header\--billing {
+        @include col(5);
+    }
+    &__same-as-shipping {
+        font-size: 12px;
+        @include col(3);
+        text-align: right;
+        color: $purple;
+        margin-top: 35px;
     }
     &__field {
         @include row;
+        margin-bottom: 10px;
     }
     &__field\--medium {
         @include row;
@@ -36,12 +51,21 @@
         @include offset(1);
         @include row;
     }
+
+    &__field\--card-holder-name, &__field\--card-number {
+        margin-bottom: 20px;
+    }
     &__input {
         height: 40px;
         border-radius: 5px;
         border: 1px solid #dedcdc;
-        margin-bottom: 10px;
         padding-left: 15px;
+        outline: none;
+    }
+
+    &__field\--city {
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
 
     // ::-webkit-input-placeholder {
@@ -85,6 +109,11 @@
         @include offset(1);
         @include col(8);
         @include row;
+        margin-top: 10px;
+    }
+
+    &__button-wrapper\--submit {
+        margin-top: 20px;
     }
 
     &__button {

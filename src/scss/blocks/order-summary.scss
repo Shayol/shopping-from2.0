@@ -1,5 +1,6 @@
 .order-summary {
     background-color: #f5f7fa;
+    position: relative;
     padding-left: 15px;
     padding-right: 15px;
     padding-top: 24px;
@@ -22,5 +23,11 @@
 
     &__total {
         margin-top: 14px;
+    }
+
+    &__copyright {
+        position: absolute;
+        bottom: 24px;
+        left: 15px;
     }
 }

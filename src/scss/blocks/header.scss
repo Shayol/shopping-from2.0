@@ -43,9 +43,10 @@
 
     &__cart {
         @include row;
-        @include col(2);  
-        @include offset(3);
+        @include col(1);  
+        @include offset(4);
         height: 100%;
-        line-height: 50px;      
+        line-height: 50px;
+        text-align: right;      
     }
 }
