@@ -68,15 +68,36 @@
         margin-bottom: 20px;
     }
 
-    // ::-webkit-input-placeholder {
-    //     color: $grey-placeholder;
-    //     size: 16px;
-    // }
+    ::-webkit-input-placeholder {
+        color: $grey-placeholder;
+        font-family: "Helvetica Neue";
+        size: 16px;
+    }
 
-    // ::-moz-placeholder {
-    //     color: $grey-placeholder;
-    //     size: 16px;
-    // }
+    ::-moz-placeholder {
+        color: $grey-placeholder;
+        font-family: "Helvetica Neue";
+        size: 16px;
+    }
+
+
+    ::placeholder {
+        color: $grey-placeholder;
+        font-family: "Helvetica Neue";
+        size: 16px;
+    }
+
+    &__select {
+        color: $grey-placeholder;
+        font-family: "Helvetica Neue";
+        size: 16px;
+    }
+
+    &__date {
+        color: $grey-placeholder;
+        font-family: "Helvetica Neue";
+        size: 16px;
+    }
     &__input:not(&__input\--small):not(&__input\--medium):not(button):not(&__input\--tiny) {
         @include offset(1);
         @include col(8);

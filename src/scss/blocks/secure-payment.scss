@@ -4,5 +4,7 @@
     line-height: 26px;
     padding-left: 25px;
     margin-bottom: 20px;
-    background: url("../img/lock.svg") left no-repeat;
+    background: url("../img/check.svg") left 10px bottom 2.5px no-repeat, 
+    url("../img/circle.svg") left 8.2px bottom no-repeat,
+    url("../img/lock.svg") left no-repeat;
 }
