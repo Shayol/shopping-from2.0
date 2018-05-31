@@ -1,6 +1,9 @@
 import "../scss/main.scss";
+import { generateCountries } from "./countries.js";
 
 window.addEventListener('load', function () { 
+    var selects = document.querySelectorAll("[name*='country'");
+    generateCountries(selects);
 
     NodeList.prototype.forEach = Array.prototype.forEach;
     var formSections = document.querySelectorAll('.form__section:not(:last-child)');

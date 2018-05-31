@@ -1,6 +1,6 @@
 .page {
-    background-color: #e6e9f0;
     height: 100%;
+    
     &__header {
         height: 50px;
     }
@@ -9,6 +9,7 @@
         margin-right: auto;
     }
     @media (min-width: $tablet) {
+        
         &__content {
             width: 700px;
         }

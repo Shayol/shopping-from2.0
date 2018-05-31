@@ -3,7 +3,7 @@
     position: relative;
     padding-left: 15px;
     padding-right: 15px;
-    padding-top: 24px;
+    padding-top: 24px;    
 
     &__header {
         @include row;
@@ -23,11 +23,12 @@
 
     &__total {
         margin-top: 14px;
+        padding-bottom: 50px;
     }
 
     &__copyright {
         position: absolute;
-        bottom: 24px;
+        bottom: 4%;
         left: 15px;
     }
 }

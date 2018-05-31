@@ -25,7 +25,7 @@
     &__title {
         height: 100%;
         @include row;
-        @include col(5);
+        @include col(8);
         line-height: 50px;
     }
 
@@ -39,14 +39,24 @@
     &__text {
         @include col(9);
         height: 100%;
+        color: $purple;
     }
 
     &__cart {
         @include row;
-        @include col(1);  
-        @include offset(4);
+        @include col(2);        
         height: 100%;
         line-height: 50px;
         text-align: right;      
+    }
+
+    @media (min-width: $tablet) {
+        &__title {
+            @include col(5);
+        }
+        &__cart {
+            @include offset(4);
+            @include col(1);
+        }
     }
 }

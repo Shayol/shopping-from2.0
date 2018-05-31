@@ -5,6 +5,7 @@
     border-bottom: 1px solid #e3e3e3;
     &__img {
         @include col-six(1);
+        max-width: 44px;
         border-radius: 1px;
         border: 1px solid #e3e3e3;
     }
