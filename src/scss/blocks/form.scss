@@ -70,32 +70,32 @@
 
     ::-webkit-input-placeholder {
         color: $grey-placeholder;
-        font-family: "Helvetica Neue";
+        font-family: "Fira Sans";
         size: 16px;
     }
 
     ::-moz-placeholder {
         color: $grey-placeholder;
-        font-family: "Helvetica Neue";
+        font-family: "Fira Sans";
         size: 16px;
     }
 
 
     ::placeholder {
         color: $grey-placeholder;
-        font-family: "Helvetica Neue";
+        font-family: "Fira Sans";
         size: 16px;
     }
 
     &__select {
         color: $grey-placeholder;
-        font-family: "Helvetica Neue";
+        font-family: "Fira Sans";
         size: 16px;
     }
 
     &__date {
         color: $grey-placeholder;
-        font-family: "Helvetica Neue";
+        font-family: "Fira Sans";
         size: 16px;
     }
     &__input:not(&__input\--small):not(&__input\--medium):not(button):not(&__input\--tiny) {
@@ -114,6 +114,10 @@
     &__input\--security-code, &__subheader\--security-code {
         @include offset(1);
     }
+
+    &__input--error-background {
+        background-color: rgba(248, 231, 28, 0.07);
+    } 
     &__subheader\--expired-date, &__subheader\--security-code {
         @include col(3);
     }

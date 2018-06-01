@@ -32,4 +32,12 @@
             @extend %separator;
         }
     }
+
+    &__item\--active {
+        color: $purple;
+    }
+
+    &__item\--before {
+        text-decoration: underline;
+    }
 }

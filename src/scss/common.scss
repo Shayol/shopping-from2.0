@@ -1,6 +1,10 @@
+
 @font-face {
-    font-family: "Helvetica Neue";
-    src: url("../fonts/HelveticaNeue.ttf") format("truetype");
+    font-family: "Fira Sans";
+    src: url("../fonts/fira_sans_extra_condensed/FiraSansExtraCondensed-Regular.woff2") format("woff2"),
+    url("../fonts/fira_sans_extra_condensed/FiraSansExtraCondensed-Regular.woff") format("woff"),
+    url("../fonts/fira_sans_extra_condensed/FiraSansExtraCondensed-Regular.ttf") format("truetype"),
+    url("../fonts/fira_sans_extra_condensed/FiraSansExtraCondensed-Regular.eot") format("eot");
     font-weight:normal;
     font-style:normal;
 }
@@ -12,7 +16,7 @@ $grey-order-summary: #777879;
 $tablet: 780px;
 
 html {
-    font-family: "Helvetica Neue";
+    font-family: "Fira Sans";
     font-size: 16px;
     height: 100%;
 }
