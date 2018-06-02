@@ -1,0 +1,27 @@
+.error {
+    background-color: white;
+    z-index: 1;
+    position: absolute;
+    bottom: 80%;
+    left: 10%;
+    padding: 7px 12px;
+    font-size: 13px;
+    color: #d0021b;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px 5px 0 0;
+    border: 1px solid rgba(222, 220, 220, 0.849);
+    &::after {
+        content: '';
+        display: block;
+        width: 0.8em;
+        height: 0.8em;
+        position: absolute;
+        z-index: 2;
+        top: 100%;
+        left: 1.5em;
+        border-bottom: 1px solid rgba(222, 220, 220, 0.849);
+        border-right: 1px solid rgba(222, 220, 220, 0.849);
+        transform: rotate(45deg) translateY(-50%);
+        background-color: white;
+    }
+}

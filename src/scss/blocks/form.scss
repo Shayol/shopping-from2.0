@@ -40,6 +40,7 @@
     &__field {
         @include row;
         margin-bottom: 10px;
+        position: relative;
     }
     &__field\--medium {
         @include row;
@@ -115,9 +116,13 @@
         @include offset(1);
     }
 
-    &__input--error-background {
+    &__input\--error-background {
         background-color: rgba(248, 231, 28, 0.07);
     } 
+
+    &__input\--error-shadow {
+        box-shadow: 0 -0.2em 0.2em grey;
+    }
     &__subheader\--expired-date, &__subheader\--security-code {
         @include col(3);
     }

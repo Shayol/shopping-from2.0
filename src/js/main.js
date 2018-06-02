@@ -1,7 +1,8 @@
 import "../scss/main.scss";
 import { generateCountries } from "./countries.js";
+var validate = require("validate.js");
 
-window.addEventListener('load', function () { 
+window.addEventListener('load', function () {
 
     NodeList.prototype.forEach = Array.prototype.forEach;
     NodeList.prototype.some = Array.prototype.some;
@@ -16,15 +17,98 @@ window.addEventListener('load', function () {
 
     var form = document.querySelector("form");
     var submitButton = document.querySelector(".form__submit");
-    
+
     var cardNumber = document.querySelector(".form__input--cardnumber");
 
     var inputs = form.querySelectorAll('.form__input');
 
     var sameAsShipping = document.querySelector(".form__same-as-shipping");
 
-    var geolocation =  document.querySelector(".geolocation");
+    var geolocation = document.querySelector(".geolocation");
 
+    var constraints = {
+        "shipping phone": {
+            presence: true,
+            format: {
+                pattern: "[0-9]+",
+                message: "can only contain 0-9"
+            }, 
+            length: {
+                is: 10
+            }
+        },
+        "shipping name": {
+            presence: {allowEmpty: false}
+        }, 
+
+        "shipping street": {
+            presence: {allowEmpty: false}
+        },
+
+        "shipping city": {
+            presence: {allowEmpty: false}
+        },
+
+        "shipping country": {
+            presence: {allowEmpty: false}
+        },
+
+        "shipping zip": {
+            presence: {allowEmpty: false},
+            format: {
+                pattern: "[0-9]+",
+                message: "can only contain 0-9"
+            }
+        },
+        "billing name": {
+            presence: true,
+        },
+        "billing email": {
+            presence: {allowEmpty: false},
+            email: {message: "doesn't look like a valid email"}
+        },
+        "billing street": {
+            presence: {allowEmpty: false}
+        },
+        "billing city": {
+            presence: {allowEmpty: false}
+        },
+        "billing country": {
+            presence: {allowEmpty: false}
+        },
+        "billing zip": {
+            presence: {allowEmpty: false},
+            format: {
+                pattern: "[0-9]+",
+                message: "can only contain 0-9"
+            }
+        },
+        "card holder name": {
+            presence: {allowEmpty: false}
+        },
+        "card number": {
+            presence: {allowEmpty: false},
+            format: {
+                pattern: /^(34|37|4|5[1-5]).*$/,
+                message: function(value, attribute, validatorOptions, attributes, globalOptions) {
+                  return validate.format("^%{num} is not a valid credit card number", {
+                    num: value
+                  });
+                }
+              },
+        },
+        "expire date": {
+            presence: {allowEmpty: false}
+        },
+        "security code": {
+            presence: {allowEmpty: false},
+            format: {
+                pattern: "[0-9]+",
+                message: "can only contain 0-9"
+            }
+        }
+
+    }
 
     generateCountries(selects);
 
@@ -52,28 +136,17 @@ window.addEventListener('load', function () {
     formSections.forEach(section => {
         section.addEventListener('click', (event) => {
             var el = event.target;
-            if(el.classList.contains('button')) {
+            if (el.classList.contains('button')) {
 
-                var inputs = form.querySelectorAll(".form__input");
-                
-                // var errors = inputs.some((el) => {
-                //     checkValidity(el)
-                //     return !el.validity.valid
-                // });
-    
-                // inputs.forEach( el => {
-                //     if(!el.validity.valid) {
-                //         el.classList.add("form__input--error-background");
-                //     }
-                // });
+                var errors = showErrors(section);
 
-                // if (errors) {
-                //     return
-                // }
-                
+                if (errors) {
+                    return
+                }
+
                 section.style.display = 'none';
                 section.nextElementSibling.style.display = "block";
-            
+
                 breadcrumbStep(section.nextElementSibling);
             }
         });
@@ -102,178 +175,109 @@ window.addEventListener('load', function () {
 
     //same as shipping 
 
-//     sameAsShipping.addEventListener('click', (e) => {
-//         var shippingFields = document.querySelectorAll(`.field__input--name-shipping, 
-//                                                        .field__input--street-shipping, 
-//                                                        .field__input--apt-shipping,
-//                                                        .field__input--city-shipping,
-//                                                        .field__input--city-shipping,
-//                                                        .field__input--country-shipping,
-//                                                        .field__input--zip-shipping`);
+    //     sameAsShipping.addEventListener('click', (e) => {
+    //         var shippingFields = document.querySelectorAll(`.field__input--name-shipping, 
+    //                                                        .field__input--street-shipping, 
+    //                                                        .field__input--apt-shipping,
+    //                                                        .field__input--city-shipping,
+    //                                                        .field__input--city-shipping,
+    //                                                        .field__input--country-shipping,
+    //                                                        .field__input--zip-shipping`);
 
-//         var billingFields = document.querySelectorAll(`.field__input--name-billing, 
-//                                                         .field__input--street-billing, 
-//                                                         .field__input--apt-billing,
-//                                                         .field__input--city-billing,
-//                                                         .field__input--city-billing,
-//                                                         .field__input--country-billing,
-//                                                         .field__input--zip-billing`);
+    //         var billingFields = document.querySelectorAll(`.field__input--name-billing, 
+    //                                                         .field__input--street-billing, 
+    //                                                         .field__input--apt-billing,
+    //                                                         .field__input--city-billing,
+    //                                                         .field__input--city-billing,
+    //                                                         .field__input--country-billing,
+    //                                                         .field__input--zip-billing`);
 
-//         shippingFields.forEach( (field, index) => { billingFields[index].value = field.value } );
-//     });
+    //         shippingFields.forEach( (field, index) => { billingFields[index].value = field.value } );
+    //     });
 
 
-//     // Validation
+    //     // Validation
 
-//     inputs.forEach(el => {
+    function showErrors(section) {
 
-//         el.addEventListener('keydown', (event) => {
-//             if (event.which == 13) event.preventDefault();
-//         });
+        var error = document.querySelector("form .error");
+        if (error) {
+            var parent = error.parentNode;
+            parent.removeChild(error);
+            inputs.forEach(input => {
+                input.classList.remove("form__input--error-background");
+                input.classList.remove("form__input--error-shadow");
+            })
 
-//         el.addEventListener("focusout", function (e) { checkValidity(e.target); });
-//         el.addEventListener('input', function (e) { checkValidity(e.target); });
-//         el.addEventListener('change', function (e) { checkValidity(e.target); });
-//     });
+        }
 
-//     function checkValidity(field) {
+        inputs = section ? section.querySelectorAll('.form__input') : inputs;
 
-//         if (field.previousElementSibling.classList.contains("field__error")) {
-//             field.previousElementSibling.innerHTML = '';
-//             field.previousElementSibling.classList.remove("field__error--active");
-//             field.classList.remove("field__input--error-background");
-//             field.classList.remove("field__input--error-shadow");
-//         }
+        var invalid = inputs.some(input => {
 
-//         if(!field.validity.valid) {
-//             field.classList.add("field__input--error-shadow");
-//         }
+            var singleConstraint = constraints[input.name];
+            var message = singleConstraint ? validate.single(input.value, singleConstraint) : false;
 
-//         if (field.validity.typeMismatch && field.name == "email") {
-//             showError(field, "Email is in wrong format.");
-//         }
+            if (message) {
+                var newError = document.createElement("p");
+                newError.classList.add("error");
+                newError.innerHTML = message[0];
 
-//         else if (field.validity.patternMismatch && field.name == "cardnumber") {
-//             showError(field, "Wrong format. Card number should have 16 numbers in it.");
-//         }
+                input.parentNode.appendChild(newError);
 
-//         else if (field.validity.typeMismatch && field.name == "card-date") {
-//             showError(field, "Date is in wrong format. It should be MM/YY.");
-//         }
+                input.classList.add("form__input--error-shadow")
 
-//         else if (field.validity.typeMismatch && field.name == "security-code") {
-//             showError(field, "Security code is in wrong format. It should be 3 or 4 digit number.");
-//         }
+                inputs.forEach(el => {
+                    if (!el.validity.valid) {
+                        el.classList.add("form__input--error-background");
+                    }
+                });
 
-//         else if (field.validity.valueMissing && field.name == "name-shipping") {
-//             showError(field, "Please enter recepient full name.");
-//         }
+                return true;
+            }
+            return false;
+        });
 
-//         else if (field.validity.valueMissing && field.name == "phone") {
-//             showError(field, "Please enter phone number.");
-//         }
+        return invalid;
+    }
 
-//         else if (field.validity.valueMissing && field.name == "street-shipping") {
-//             showError(field, "Please enter recepient street address.");
-//         }
+    //     // Detect card
 
-//         else if (field.validity.valueMissing && field.name == "city-shipping") {
-//             showError(field, "Please enter recepient's city by hand or use geolocation.");
-//         }
+    //     cardNumber.addEventListener('input', e => {
+    //         var number = e.target.value;
 
-//         else if (field.validity.valueMissing && field.name == "country-shipping") {
-//             showError(field, "Please enter recepient country.");
-//         }
+    //         number = number.split(" ").join("");
 
-//         else if (field.validity.valueMissing && field.name == "zip-shipping") {
-//             showError(field, "Please enter recepient's zip code.");
-//         }
+    //         if (/^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/.test(number)) {
+    //             e.target.className = "field__input field__input--cardnumber field__input--Mastercard";
+    //         }
 
-//         else if (field.validity.valueMissing && field.name == "name-billing") {
-//             showError(field, "Please enter full name for billing.");
-//         }
+    //         else if (/^4/.test(number)) {
+    //             e.target.className = "field__input field__input--cardnumber field__input--Visa";
+    //         }
 
-//         else if (field.validity.valueMissing && field.name == "email") {
-//             showError(field, "Please enter email.");
-//         }
+    //         else {
+    //             e.target.className = "field__input field__input--cardnumber";
+    //         }
 
-//         else if (field.validity.valueMissing && field.name == "street-billing") {
-//             showError(field, "Please enter street address for billing.");
-//         }
+    //     });
 
-//         else if (field.validity.valueMissing && field.name == "city-billing") {
-//             showError(field, "Please enter city for billing by hand or use geolocation.");
-//         }
+    //     // geolocation 
 
-//         else if (field.validity.valueMissing && field.name == "country-billing") {
-//             showError(field, "Please enter country for billing.");
-//         }
+    //     (function detectGeolocation() {
+    //         if (navigator.geolocation) {
 
-//         else if (field.validity.valueMissing && field.name == "zip-billing") {
-//             showError(field, "Please enter zip code for billing.");
-//         }
+    //             geolocation.addEventListener('click', getLocation)
 
-//         else if (field.validity.valueMissing && field.name == "card-holder-name") {
-//             showError(field, "Please enter cardholder name.");
-//         }
 
-//         else if (field.validity.valueMissing && field.name == "cardnumber") {
-//             showError(field, "Please enter card number.");
-//         }
+    //         } else {
+    //             geolocation.style.display = "none";
+    //         }
+    //     })();
 
-//         else if (field.validity.valueMissing && field.name == "card-date") {
-//             showError(field, "Please enter expiry date for card in MM/YY format. For example 02/19.");
-//         }
-
-//         else if (field.validity.valueMissing && field.name == "security-code") {
-//             showError(field, "Please enter security code for you card. It's a 3 or 4 digit number.");
-//         }
-
-//     }
-
-//     function showError(field, message) {
-//         var error = field.previousElementSibling;
-//         error.classList.add("field__error--active");
-//         error.innerHTML = message;
-//     }
-
-//     // Detect card
-
-//     cardNumber.addEventListener('input', e => {
-//         var number = e.target.value;
-
-//         number = number.split(" ").join("");
-
-//         if (/^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/.test(number)) {
-//             e.target.className = "field__input field__input--cardnumber field__input--Mastercard";
-//         }
-
-//         else if (/^4/.test(number)) {
-//             e.target.className = "field__input field__input--cardnumber field__input--Visa";
-//         }
-
-//         else {
-//             e.target.className = "field__input field__input--cardnumber";
-//         }
-
-//     });
-
-//     // geolocation 
-
-//     (function detectGeolocation() {
-//         if (navigator.geolocation) {
-
-//             geolocation.addEventListener('click', getLocation)
-            
-
-//         } else {
-//             geolocation.style.display = "none";
-//         }
-//     })();
-
-//     function getLocation(e) {
-//         navigator.geolocation.getCurrentPosition( (position) => {
-//             e.target.previousElementSibling.value = `latitude: ${position.coords.latitude} Longitude: ${position.coords.longitude}`;
-//         });
-//     }
+    //     function getLocation(e) {
+    //         navigator.geolocation.getCurrentPosition( (position) => {
+    //             e.target.previousElementSibling.value = `latitude: ${position.coords.latitude} Longitude: ${position.coords.longitude}`;
+    //         });
+    //     }
 });
