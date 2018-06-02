@@ -28,7 +28,7 @@ window.addEventListener('load', function () {
 
     var constraints = {
         "shipping phone": {
-            presence: true,
+            presence: {allowEmpty: false},
             format: {
                 pattern: "[0-9]+",
                 message: "can only contain 0-9"
@@ -61,7 +61,7 @@ window.addEventListener('load', function () {
             }
         },
         "billing name": {
-            presence: true,
+            presence: {allowEmpty: false}
         },
         "billing email": {
             presence: {allowEmpty: false},
@@ -112,24 +112,17 @@ window.addEventListener('load', function () {
 
     generateCountries(selects);
 
-    // submitButton.addEventListener('click', (event) => {
+    form.addEventListener('submit', (event) => {
 
-    //     var errors = inputs.some((el) => {
-    //         checkValidity(el)
-    //         return !el.validity.valid
-    //     });
+        event.preventDefault();
 
-    //     inputs.forEach( el => {
-    //         if(!el.validity.valid) {
-    //             el.classList.add("form__input--error-background");
-    //         }
-    //     });
+        var errors = showErrors(form);
 
-    //     if (errors) {
-    //         return
-    //     }
-    //     form.submit();
-    // });
+        if (errors) {
+            return
+        }
+        form.submit();
+    });
 
     // Continue next step
 
@@ -211,7 +204,7 @@ window.addEventListener('load', function () {
 
         }
 
-        inputs = section ? section.querySelectorAll('.form__input') : inputs;
+        inputs = section.querySelectorAll('.form__input');
 
         var invalid = inputs.some(input => {
 

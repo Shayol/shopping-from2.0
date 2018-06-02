@@ -93,10 +93,12 @@
                         <div class="form__field">
                             <div class="form__field--medium">
                                 <select name="shipping country" class="form__input form__select form__input--medium" required>
-                                    
+
                                 </select>
                             </div>
-                            <input type="text" class="form__input form__input--small" placeholder="ZIP" name="shipping zip" required>
+                            <div class="form__input-wrapper--small">
+                                <input type="text" class="form__input form__input--small" placeholder="ZIP" name="shipping zip" required>
+                            </div>
                         </div>
                         <div class="form__button-wrapper">
                             <div class="form__button button">Continue</div>
@@ -130,7 +132,9 @@
                                     <option selected value disabled>Country</option>
                                 </select>
                             </div>
-                            <input type="text" class="form__input form__input--small" placeholder="ZIP" name="billing zip" required>
+                            <div class="form__input-wrapper--small">
+                                <input type="text" class="form__input form__input--small" placeholder="ZIP" name="billing zip" required>
+                            </div>
                         </div>
                         <div class="form__button-wrapper">
                             <div class="form__button button">Continue</div>
@@ -154,8 +158,12 @@
                             <h3 class="form__subheader subheader form__subheader--security-code">Security Code</h3>
                         </div>
                         <div class="form__field form__field--tiny">
-                            <input type="date" name="expire date" class="form__input form__input--tiny form__date">
-                            <input type="text" name="security code" class="form__input form__input--tiny form__input--security-code">
+                            <div class="form__input-wrapper--tiny">
+                                <input type="date" name="expire date" class="form__input form__input--tiny form__date">
+                            </div>
+                            <div class="form__input-wrapper--tiny form__input-wrapper--security-code">
+                                <input type="text" name="security code" class="form__input form__input--tiny">
+                            </div>
                         </div>
                         <div class="form__button-wrapper form__button-wrapper--submit">
                             <button type="submit" class="form__button button form__submit">Pay Securely</button>
@@ -253,7 +261,8 @@
                     <div class="total__text">Total</div>
                     <div class="total__number">$410.12</div>
                 </div>
-                <div class="order-summary__copyright copyright">All purchases are subject to our <a href="#" class="copyright__link">Terms and Conditions</a>.</div>
+                <div class="order-summary__copyright copyright">All purchases are subject to our
+                    <a href="#" class="copyright__link">Terms and Conditions</a>.</div>
             </div>
         </div>
     </div>
