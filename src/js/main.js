@@ -168,25 +168,21 @@ window.addEventListener('load', function () {
 
     //same as shipping 
 
-    //     sameAsShipping.addEventListener('click', (e) => {
-    //         var shippingFields = document.querySelectorAll(`.field__input--name-shipping, 
-    //                                                        .field__input--street-shipping, 
-    //                                                        .field__input--apt-shipping,
-    //                                                        .field__input--city-shipping,
-    //                                                        .field__input--city-shipping,
-    //                                                        .field__input--country-shipping,
-    //                                                        .field__input--zip-shipping`);
+        sameAsShipping.addEventListener('click', (e) => {
+            var shippingFields = form.querySelectorAll("[name*='shipping'");
 
-    //         var billingFields = document.querySelectorAll(`.field__input--name-billing, 
-    //                                                         .field__input--street-billing, 
-    //                                                         .field__input--apt-billing,
-    //                                                         .field__input--city-billing,
-    //                                                         .field__input--city-billing,
-    //                                                         .field__input--country-billing,
-    //                                                         .field__input--zip-billing`);
+            var billingFields = form.querySelectorAll("[name*='billing'");
 
-    //         shippingFields.forEach( (field, index) => { billingFields[index].value = field.value } );
-    //     });
+            shippingFields.forEach( shipField => {
+                var shipName = shipField.name.split(" ")[1];
+                billingFields.forEach ( billField => {
+                    var billName = billField.name.split(" ")[1];
+                    if (shipName == billName) {
+                        billField.value = shipField.value;
+                    }
+                } );
+             } );
+        });
 
 
     //     // Validation
@@ -233,6 +229,17 @@ window.addEventListener('load', function () {
 
         return invalid;
     }
+
+    //validate on the fly
+
+    inputs.forEach(input => {
+        input.addEventListener('focusout', e => {
+            showErrors(input.parentNode);
+            input.addEventListener('keyup', event => {
+                showErrors(input.parentNode);
+            });
+        });        
+    });
 
     //     // Detect card
 
