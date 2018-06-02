@@ -18,7 +18,7 @@ window.addEventListener('load', function () {
     var form = document.querySelector("form");
     var submitButton = document.querySelector(".form__submit");
 
-    var cardNumber = document.querySelector(".form__input--cardnumber");
+    var cardNumber = document.querySelector(".form__input--card-number");
 
     var inputs = form.querySelectorAll('.form__input');
 
@@ -241,43 +241,43 @@ window.addEventListener('load', function () {
         });        
     });
 
-    //     // Detect card
+        // Detect card
 
-    //     cardNumber.addEventListener('input', e => {
-    //         var number = e.target.value;
+        cardNumber.addEventListener('input', e => {
+            var number = e.target.value;
 
-    //         number = number.split(" ").join("");
+            number = number.split(" ").join("");
 
-    //         if (/^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/.test(number)) {
-    //             e.target.className = "field__input field__input--cardnumber field__input--Mastercard";
-    //         }
+            if (/^(5[1-5][0-9]{14}|2(22[1-9][0-9]{12}|2[3-9][0-9]{13}|[3-6][0-9]{14}|7[0-1][0-9]{13}|720[0-9]{12}))$/.test(number)) {
+                e.target.classList.add("form__input--Mastercard");
+            }
 
-    //         else if (/^4/.test(number)) {
-    //             e.target.className = "field__input field__input--cardnumber field__input--Visa";
-    //         }
+            else if (/^4/.test(number)) {
+                e.target.classList.add("form__input--Visa");
+            }
 
-    //         else {
-    //             e.target.className = "field__input field__input--cardnumber";
-    //         }
+            else {
+                e.target.className = "form__input form__input--card-number";
+            }
 
-    //     });
+        });
 
     //     // geolocation 
 
-    //     (function detectGeolocation() {
-    //         if (navigator.geolocation) {
+        (function detectGeolocation() {
+            if (navigator.geolocation) {
 
-    //             geolocation.addEventListener('click', getLocation)
+                geolocation.addEventListener('click', getLocation)
 
 
-    //         } else {
-    //             geolocation.style.display = "none";
-    //         }
-    //     })();
+            } else {
+                geolocation.style.display = "none";
+            }
+        })();
 
-    //     function getLocation(e) {
-    //         navigator.geolocation.getCurrentPosition( (position) => {
-    //             e.target.previousElementSibling.value = `latitude: ${position.coords.latitude} Longitude: ${position.coords.longitude}`;
-    //         });
-    //     }
+        function getLocation(e) {
+            navigator.geolocation.getCurrentPosition( (position) => {
+                e.target.value = `latitude: ${position.coords.latitude} Longitude: ${position.coords.longitude}`;
+            });
+        }
 });

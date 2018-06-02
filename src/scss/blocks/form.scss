@@ -64,6 +64,10 @@
         outline: none;
     }
 
+    &__input:focus {
+        border: 1px solid rgba(67, 28, 93, 0.4);
+    }
+
     &__field\--city {
         margin-top: 10px;
         margin-bottom: 20px;
@@ -123,6 +127,19 @@
     &__input-wrapper\--security-code, &__subheader\--security-code {
         @include offset(1);
     }
+
+    &__input--Visa {
+        background-image: url("../img/visa.svg");
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+    }
+    
+    &__input--Mastercard {
+        background-image: url("../img/mastercard.svg");
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+    }
+    
 
     &__input\--error-background {
         background-color: rgba(248, 231, 28, 0.07);
